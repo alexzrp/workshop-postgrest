@@ -1,10 +1,10 @@
-# Workshop PL/pgSQL
+# Workshop PostgREST
 
 Parte do workshop sobre **Stored Procedure no Postgres**
 
 Baixe esse projeto com
 ```shell script
-git clone https://github.com/alexzrp/workshop1.git
+git clone https://github.com/alexzrp/workshop-postgrest.git
 ```
 
 ## Requisitos
@@ -17,7 +17,7 @@ git clone https://github.com/alexzrp/workshop1.git
 ### Para rodar os ambientes:
 
 ```shell script
-cd workshop1
+cd workshop-postgrest
 docker compose up -d
 ```
 
