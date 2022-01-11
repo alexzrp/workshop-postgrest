@@ -1,0 +1,33 @@
+version: '3'
+
+volumes:
+  pgdata:
+    driver: local
+
+services:
+  db:
+    image: library/postgres:13-alpine
+    environment:
+      POSTGRES_PASSWORD: "cap"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - workshop1-network
+
+  pgadmin4:
+    image: dpage/pgadmin4:5.6
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "cap@zrp.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "cap"
+    volumes:
+      - ./data:/var/lib/pgadmin/storage
+    ports:
+      - "6002:80"
+    depends_on:
+      - db
+    networks:
+      - workshop1-network
+
+networks:
+  workshop1-network:
+    driver: bridge
