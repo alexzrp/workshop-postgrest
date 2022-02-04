@@ -4,7 +4,7 @@ Parte do workshop sobre **Stored Procedure no Postgres**
 
 Baixe esse projeto com
 ```shell script
-git clone https://github.com/alexzrp/workshop1.git
+git clone https://github.com/alexzrp/workshop-postgrest.git
 ```
 
 ## Requisitos
@@ -13,11 +13,14 @@ git clone https://github.com/alexzrp/workshop1.git
 ## Composição
 - Postgres 13.x
 - pgAdmin4 v5.6
+- PostgREST
+- NGINX
+- Swagger
 
 ### Para rodar os ambientes:
 
 ```shell script
-cd workshop1
+cd workshop-postgrest
 docker compose up -d
 ```
 
@@ -29,7 +32,7 @@ docker compose up -d
 
 ### Setup pgAdmin4
 
-Clique em CREATE SERVER, preencha o nome `workshop1`.
+Clique em CREATE SERVER, preencha o nome `workshop`.
 Em `Connection` preencha como a imagem abaixo usando a senha `cap`
 Marque a opção `Save password?` para manter a senha salva no seu pgadmin4
 
@@ -37,17 +40,20 @@ Marque a opção `Save password?` para manter a senha salva no seu pgadmin4
 
 ### Setup PostgreSQL
 
-No lado esquerdo, clique com o botão direito em `Databases -> Create -> Server`
-
-![create_database](docs/create_database.png)
-
 #### Restaurando o banco DVDRENTALS
 
-Agora que já temos o banco de dados, vamos restaurar todos os objetos de um dump.
+Agora que já temos o banco de dados `postgres`, vamos restaurar todos os objetos de um dump.
 
-Siga os passos da figura abaixo:
+Clique com o botão direito sobre o database `postgres`, despois em Restore e selecione o arquivo `dvdrentals.tar`
 
-![restore_db](docs/restore_db.png)
+### Acessando o Swagger-UI
+
+Acesse
+
+```
+http://localhost:8080
+```
+
 
 Agora você está pronto para iniciar.
 
