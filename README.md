@@ -54,6 +54,13 @@ Acesse
 http://localhost:8080
 ```
 
+Para executar autenticado, utilize o botão Authorize
+e cole o conteudo do Bearer abaixo:
+
+```
+Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjQ3NjIxMDY4NTYsImlhdCI6MTYwNjQxMTY1Niwicm9sZSI6InBvc3RncmVzIn0.dOd65WUWa_q4MVBCL312cpF5wSQBNoXg7bBKd7uNjg8
+```
+
 
 Agora você está pronto para iniciar.
 
