@@ -17,8 +17,6 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
   ALTER TABLE basic_auth.users ENABLE ROW LEVEL SECURITY;
   CREATE POLICY owner_policy ON basic_auth.users USING (email = current_user) WITH CHECK (email = current_user);
 
-  INSERT INTO basic_auth.users VALUES ('${PGADMIN_DEFAULT_EMAIL}', '${PGADMIN_DEFAULT_PASSWORD}', 'web_user', 'CAP ZRP');
-
   create or replace function
   basic_auth.check_role_exists() returns trigger as \$\$
   begin
@@ -65,4 +63,6 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     );
   end;
   \$\$;
+
+  INSERT INTO basic_auth.users VALUES ('${PGADMIN_DEFAULT_EMAIL}', '${PGADMIN_DEFAULT_PASSWORD}', 'web_user', 'CAP ZRP');
 EOSQL
