@@ -2,7 +2,7 @@
 set -e
 
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
-  create role authenticator noinherit login password '${SECRET_TOKEN}';
+  create role authenticator noinherit login password '${PGRST_JWT_SECRET}';
 
   create role ${PGRST_DB_ANON_ROLE} nologin;
   grant usage on schema ${PGRST_DB_SCHEMA} to ${PGRST_DB_ANON_ROLE};

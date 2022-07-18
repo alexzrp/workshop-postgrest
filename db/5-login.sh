@@ -20,7 +20,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     end if;
 
     select sign(
-        row_to_json(r), '${SECRET_TOKEN}'
+        row_to_json(r), '${PGRST_JWT_SECRET}'
       ) as token
       from (
         select _role as role, login.email as email,
